@@ -1,8 +1,8 @@
 import json
 import sqlite3
 
-from database.d_config import DATABASE_PATH, SCHEMA_PATH, TICKERS_PATH
-from database.extractor import get_price_data
+from database.d_config import DATABASE_PATH, SCHEMA_PATH, TICKERS_PATH, MIN_PERIODS, MAX_PERIODS
+from database.prices import get_price_data, get_moving_average
 
 
 def initialize_db():
@@ -23,14 +23,19 @@ def initialize_prices_averages():
     conn = sqlite3.connect(DATABASE_PATH)
     cursor = conn.cursor()
     cursor.execute("SELECT ticker FROM tickers")
-    
     tickers = cursor.fetchall()
 
     for t in tickers:
         ticker = t[0]
         if not prices_exists(cursor, ticker):
-            get_price_data(ticker)
-    
+            prices = get_price_data(ticker)  
+            update_prices(prices=prices, ticker=ticker, conn=conn)    
+            for period in range(MIN_PERIODS, MAX_PERIODS + 1):
+                sma = get_moving_average(prices, period=period, ma_type="SMA")
+                update_moving_averages(ma_df=sma, ma_type="SMA", ticker=ticker, period=period, conn=conn)
+                ema = get_moving_average(prices, period=period, ma_type="EMA")
+                update_moving_averages(ma_df=ema, ma_type="EMA", ticker=ticker, period=period, conn=conn)
+
     conn.commit()
     conn.close()
         
@@ -42,7 +47,6 @@ def initialize_tickers():
     with open(TICKERS_PATH, "r") as tickers_file:
         tickers = json.load(tickers_file)
 
-  
     conn = sqlite3.connect(DATABASE_PATH)
     cursor = conn.cursor()
     for row in tickers:
@@ -57,7 +61,7 @@ def initialize_tickers():
     conn.close()
 
 
-def prices_exists(cursor,ticker):
+def prices_exists(cursor, ticker):
     """ 
     Checks to see if the ticker has price data 
     """
@@ -76,7 +80,35 @@ def ticker_exists(cursor, ticker):
 
 
 def setup_database():
+    """ Set up the Database """
     initialize_db()
     initialize_tickers()
     initialize_prices_averages()
 
+
+def update_prices(prices, ticker, conn):
+    prices["Ticker"] = ticker
+    mapping = {
+        "Date": "date",
+        "Ticker": "ticker",
+        "Open": "open",
+        "High": "high",
+        "Low": "low",
+        "Close": "close"
+    } 
+    prices.to_sql("prices", conn, if_exists = "append", index=False, dtype=mapping)
+
+
+def update_moving_averages(ma_df, ma_type, ticker, period, conn):
+    ma_df["Ticker"] = ticker
+    ma_df["Period"] = period
+    mapping = {
+        "Date": "date",
+        "Ticker": "ticker",
+        "Period": "period",
+        "Value": "value"
+    } 
+    if ma_type == "SMA":
+        ma_df.to_sql("sma", conn, if_exists = "append", index=False, dtype=mapping)
+    elif ma_type == "EMA":
+        ma_df.to_sql("ema", conn, if_exists = "append", index=False, dtype=mapping)
