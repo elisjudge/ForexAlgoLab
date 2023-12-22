@@ -1,20 +1,18 @@
-// import logo from './logo.svg';
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import Header from './components/Header/header';
+import AnalysisIntroForm from './components/AnalysisIntroForm/AnalysisIntroForm';
+import BackTestResults from './components/BackTestResults/BackTestResults';
+import FAQ from './components/FAQ/FAQ';
+import Footer from './components/Footer/Footer';
 
 function App() {
-  const [message, setMessage] = useState(null);
-
-  useEffect(() => {
-    fetch('/api/test')
-      .then(response => response.json())
-      .then(data => setMessage(data.message))
-      .catch(error => console.error('Fetch error:', error));
-  }, []);
-
   return (
-    <div>
-      <p>Message from Flask: {message}</p>
+    <div class="App">
+      <Header />
+      <AnalysisIntroForm/>
+      <BackTestResults/>
+      <FAQ/>
+      <Footer/>
     </div>
   );
 }

@@ -1,0 +1,66 @@
+.IntroFormContainer {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, var(--clr-primary-dark), var(--clr-primary-light));
+    padding-bottom: 4em;
+
+    .introBlock {
+        
+        position: relative;
+        max-width: 700px;
+        color: var(--clr-white);
+        padding: 5rem;
+
+        .svg-circle {
+            
+            position: absolute; 
+            top: 40%; 
+            left: 20%;  
+            transform: translate(-50%, -50%);
+
+            circle {
+                overflow: auto;
+                fill: var(--clr-secondary);
+                opacity: 20%;
+            }
+        }
+        
+
+        h2, h3, p {
+            margin-bottom: 1.5rem;
+            
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .analysisForm {
+        flex: 0.9;
+        padding: 1rem;
+
+        .formBorder{
+            background-color: white;
+            opacity: 90%;
+            padding: 2rem;
+            border-radius: 50px;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                opacity: 200%;
+
+                .inputField {
+                    display: inline-flex;
+                    justify-content: flex-start;
+                    margin-bottom: 1.5rem;
+    
+    
+                    label {
+                        margin-right: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}

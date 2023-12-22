@@ -1,0 +1,64 @@
+.backtest-results {
+    margin-top: -0.5rem;
+    margin-bottom: 2rem;
+
+    .wave {
+        margin-bottom: -4.5rem;
+    }
+
+    .results-container {
+        display: flex;
+        flex-wrap: wrap;
+        
+        .result-title {
+            width: 100%;
+            font-size: x-large;
+            color: var(--clr-primary-light);
+            padding-bottom: 1.5rem;           
+        }
+        .graph-trades-container {
+            width: 70%;
+            .graph-container {
+
+                .graph {
+                    display: flex;
+                    height: 400px;
+                    background-color: black;
+                    color: white;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            .trades-container {
+                display: flex;
+                justify-content: center;
+
+                .trades-table {
+                    tr{
+                        th{
+                            padding: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+        .stats-table-container {
+            width: 30%;
+            background-color: aqua;
+            .stats-title {
+                color: var(--clr-primary-dark);
+                font-size: x-large;
+
+            }
+            .statistics {
+                .statistics-table {
+                    tr{
+                        th{
+                            padding: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

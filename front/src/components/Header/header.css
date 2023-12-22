@@ -1,0 +1,29 @@
+header .container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: var(--clr-primary-dark);
+    color: var(--clr-white);
+    padding: 2rem, 2rem, 2rem, 2rem;
+    
+    div.title {
+        flex: 1;
+        
+        h1.title-text {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+        h3.description{
+            font-size: 1.5rem;
+        }
+    }
+
+    div.logo {
+        flex: 0.7;
+        img {
+            max-width: 600px;
+            height: auto;
+        }
+    }
+}

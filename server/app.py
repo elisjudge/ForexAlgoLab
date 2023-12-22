@@ -13,8 +13,6 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-
-
 app.register_blueprint(test_route, url_prefix ='/api')
 
 @app.route('/')

@@ -1,0 +1,17 @@
+footer {
+    background-color: var(--clr-primary-light);
+    color: var(--clr-white);
+    padding: 0.8rem;
+    display: flex;
+    justify-content: flex-end;
+
+    table {
+        margin: auto;
+        border: 0.5px solid black;
+        
+        td {
+            padding: 0.2rem;
+        }
+    }
+}
+
