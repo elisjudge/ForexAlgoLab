@@ -1,3 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@600&family=Nanum+Gothic&family=PT+Sans+Narrow&display=swap');
+
+/* Utilities */
+.animate {
+    animation-duration: 1.8s;
+}
+
+
+/* Animation */
+@keyframes slideInRight {
+    from {
+        transform: translateX(750px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.slideInRight{
+    animation-name: slideInRight;
+    animation-timing-function: ease-out;
+}
+
 header .container{
     display: flex;
     justify-content: flex-start;
@@ -11,11 +35,13 @@ header .container{
         flex: 1;
         
         h1.title-text {
-            font-size: 3rem;
+            font-size: 3.8rem;
             margin-bottom: 2rem;
+            font-family: 'Mukta', sans-serif;
         }
         h3.description{
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            font-family: 'PT Sans Narrow', sans-serif;
         }
     }
 

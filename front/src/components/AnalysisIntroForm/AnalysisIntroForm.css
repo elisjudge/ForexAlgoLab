@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@600&family=Nanum+Gothic&family=PT+Sans+Narrow&display=swap');
+
 .IntroFormContainer {
     display: flex;
     justify-content: space-between;
@@ -32,6 +34,22 @@
             span {
                 font-weight: bold;
             }
+        }
+
+        h2 {
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: x-large;
+        }
+
+        h3 {
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: larger;
+        }
+
+        p {
+            text-align: left;
+            font-family: sans-serif;
+            font-size: 0.91rem;
         }
     }
 

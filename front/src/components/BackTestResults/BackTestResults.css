@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@600&family=Nanum+Gothic&family=PT+Sans+Narrow&display=swap');
+
 .backtest-results {
     margin-top: -0.5rem;
     margin-bottom: 2rem;
@@ -12,6 +14,7 @@
         
         .result-title {
             width: 100%;
+            font-family: 'Nanum Gothic', sans-serif;
             font-size: x-large;
             color: var(--clr-primary-light);
             padding-bottom: 1.5rem;           
@@ -46,8 +49,11 @@
             width: 30%;
             background-color: aqua;
             .stats-title {
+                font-family: 'Nanum Gothic', sans-serif;
                 color: var(--clr-primary-dark);
                 font-size: x-large;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
 
             }
             .statistics {

@@ -1,28 +1,43 @@
-.faq-container {
-  
-    .accordion {
-        background-color: #eee;
-        color: #444;
-        cursor: pointer;
-        padding: 18px;
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
-        transition: 0.4s;
-      }
-      
-      .active, .accordion:hover {
-        background-color: #ccc;
-      }
-      
-      .panel {
-        padding: 0 18px;
-        display: none;
-        background-color: white;
-        overflow: hidden;
-      }
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@600&family=Nanum+Gothic&family=PT+Sans+Narrow&display=swap');
 
+.FAQ {
+
+  h2.faq-title{
+    font-family: 'Nanum Gothic', sans-serif;
+    color: var(--clr-primary-light);
+    font-size: x-large;
+    margin-bottom: 2rem;
+
+
+  }
+  
+  .faq-container {
+    .accordion {
+      background-color: #eee;
+      color: #444;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      transition: 0.4s;
+    }
+      
+    .active, .accordion:hover {
+      background-color: #ccc;
+    }
+      
+    .panel {
+      padding: 1rem 0.8rem;
+      display: none;
+      background-color: white;
+      text-align: left;
+      overflow: hidden;
+    }
+  }
 }
+
+
   
