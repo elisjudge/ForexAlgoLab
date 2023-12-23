@@ -27,21 +27,6 @@ function AnalysisIntroForm(){
                 <div class="analysisForm">
                     <div class="formBorder">
                         <form id="backtestForm" onSubmit="handleSubmit">
-                            {/* Starting Balance */}
-                            <div class="inputField">
-                                <label for="startingBalance">Starting Balance ($):</label>
-                                <input type="number" id="startingBalance" name="startingBalance" placeholder="Enter your starting balance" required />
-                            </div>
-
-                            {/* Amount Risked per Trade  */}
-                            <div class="inputField">
-                                <label for="riskAmount">Amount Risked per Trade:</label>
-                                <input type="number" id="riskAmount" name="riskAmount" placeholder="Enter risk amount" required />
-                                <select name="riskType" id="riskType">
-                                <option value="percent">Percent</option>
-                                <option value="fixed">Fixed Amount</option>
-                                </select>
-                            </div>
 
                             {/* Security Selection  */}
                             <div class="inputField">
@@ -77,23 +62,82 @@ function AnalysisIntroForm(){
                                 </select>
                             </div>
 
+                            {/* Starting Date */}
+                            <div class="inputField">
+                                <label for="startingDate">Backtest Start Date ($):</label>
+                                <input type="date" id="startingDate" name="startingDate" placeholder="Enter backtest start date" required />
+                            </div>
+
+                            {/* Starting Balance */}
+                            <div class="inputField">
+                                <label for="startingBalance">Starting Balance ($):</label>
+                                <input type="number" id="startingBalance" name="startingBalance" placeholder="Enter your starting balance" required />
+                            </div>
+
+                            {/* Amount Risked per Trade  */}
+                            <div class="inputField">
+                                <div>
+                                    <label for="riskAmount">Amount Risked per Trade:</label>    
+                                </div>
+                                <div class="stackedInput">
+                                    <div class="spread">
+                                        <select name="riskType" id="riskType">
+                                        <option value="percent">Percent</option>
+                                        <option value="fixed">Fixed Amount</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <input type="number" id="riskAmount" name="riskAmount" placeholder="Enter risk amount" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Apply Stop Loss */}
+                            <div class="inputField">
+                                <div>
+                                    <label>Apply Stop Loss:</label>
+                                </div>
+                                <div class="stackedInput">
+                                    <div class="InputField squish">
+                                        <input type="radio" id="stoplossYes" name="applyStoploss" value="yes"/>
+                                        <label for="stoplossYes">Yes</label>
+                                    </div>
+                                    <div class="InputField">
+                                        <input type="radio" id="stoplossNo" name="applyStoploss" value="no"/>
+                                        <label for="stoplossNo">No</label>                                      
+                                    </div>
+                                </div>
+                            </div>
+                            
                             {/* Take Profit Threshold  */}
                             <div class="inputField">
                                 <label for="takeProfit">Take Profit Threshold:</label>
                                 <input type="number" id="takeProfit" name="takeProfit" placeholder="Enter profit threshold" />
                             </div>
 
+
+
                             {/* Allow Re-entries  */}
                             <div class="inputField">
-                                <label>Allow Re-entries:</label>
-                                <input type="radio" id="reentryYes" name="allowReentries" value="yes" />
-                                <label for="reentryYes">Yes</label>
-                                <input type="radio" id="reentryNo" name="allowReentries" value="no" />
-                                <label for="reentryNo">No</label>
+                                <div>
+                                   <label>Allow Re-entries:</label>
+                                </div>
+                                <div class="stackedInput">
+                                    <div class="inputField squish">
+                                        <input type="radio" id="reentryYes" name="allowReentries" value="yes" />
+                                        <label for="reentryYes">Yes</label>
+                                    </div>
+                                    <div class="inputField">
+                                        <input type="radio" id="reentryNo" name="allowReentries" value="no" />
+                                        <label for="reentryNo">No</label>
+                                    </div>
+                                </div>
                             </div>
 
                             {/* Submit Button  */}
-                            <button type="submit">Run Backtest</button>
+                            <div class="button-container">
+                                <button type="submit">Run Backtest</button>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ function Footer() {
                 <table>
                     <tbody>
                         <tr>
-                            <td>Version:0.1</td>
+                            <td>Version: 0.1</td>
                             <td>Last Updated: 2023/12/22</td>
                         </tr>
                     </tbody>
